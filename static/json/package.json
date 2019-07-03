@@ -1,0 +1,6 @@
+{
+  "name": "courgette du sud",
+  "type":"légumineuse" ,
+  "plantation":[{"date":"10/30/02" ,"nbr_plant": 4 }],
+  "recolte": [{"date": "10/12/03", "poid": 30}]
+}

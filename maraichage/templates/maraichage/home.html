@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<a href="/maraichage/add">
+    <button class="btn btn-success"> ajouter une espèce</button>
+</a>
+<div>
+    {% for legum in listLegum %}
+    <h1> {{legum.nom}} </h1>
+    <div class="row">
+        <div class="col plantation">
+            <p>Plantation
+                {{legum.date_plantation}}
+                {{legum.nbr_plant}}</p>
+        </div>
+        <div class="col recolte">
+            <p>Recolte
+                {{legum.date_recolte}}
+                {{legum.poid_recolte}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
