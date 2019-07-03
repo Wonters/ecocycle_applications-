@@ -21,14 +21,23 @@ from .forms import LegumeForm
 #     queryset = Group.objects.all()
 #     serializer_class = GroupSerializer
 
-
 def home(request):
+    return render(request, 'maraichage/home.html')
+
+
+
+def culture(request):
     listLegum = Legume.objects.all()
-    return render(request, 'maraichage/home.html', {'listLegum': listLegum})
+    return render(request, 'maraichage/culture.html', {'listLegum': listLegum})
 
 def addLegum(request):
     form = LegumeForm
     return render(request, 'maraichage/formAddLegum.html', {'form': form})
+
+#def setRecolte(request):
+
+
+
 
 def saveLegum(request):
     form = LegumeForm(request.POST)

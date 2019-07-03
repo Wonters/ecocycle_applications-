@@ -10,6 +10,7 @@ from .views import *
 
 urlpatterns = [
     path('', home),
+    path('culture', culture),
     path('add', addLegum),
     path('save', saveLegum),
     #path('', include(router.urls)),
