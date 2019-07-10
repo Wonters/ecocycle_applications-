@@ -1,10 +1,10 @@
-from django.shortcuts import render, HttpResponseRedirect
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from .serializers import UserSerializer, GroupSerializer
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
-from .models import Legume
 from .forms import LegumeForm
+from .models import Legume
+
+
 # Create your views here.
 # class UserViewSet(viewsets.ModelViewSet):
 #     """
@@ -25,18 +25,26 @@ def home(request):
     return render(request, 'maraichage/home.html')
 
 
-
 def culture(request):
-    listLegum = Legume.objects.all()
-    return render(request, 'maraichage/culture.html', {'listLegum': listLegum})
+    db = Legume.objects.all()
+    listL = []
+    dictLegum = {}
+    for legum in db:
+        listL.append(legum.nom)
+    listL = list(set(listL))
+    for nom in listL:
+        ltanpon = []
+        for legum in db:
+            if legum.nom == nom:
+                ltanpon.append(legum)
+        dictLegum[nom] = ltanpon
+    print(dictLegum)
+    return render(request, 'maraichage/culture.html', {'Legums': dictLegum})
+
 
 def addLegum(request):
     form = LegumeForm
     return render(request, 'maraichage/formAddLegum.html', {'form': form})
-
-#def setRecolte(request):
-
-
 
 
 def saveLegum(request):
@@ -44,3 +52,14 @@ def saveLegum(request):
     form.save()
     listLegum = Legume.objects.all()
     return render(request, 'maraichage/home.html', {'listLegum': listLegum})
+
+
+@csrf_exempt
+def deleteLegum(request):
+    if request.is_ajax():
+        dict_ajax = dict(request.GET)
+        name_LegToDel = dict_ajax['name'][0]
+        print('delete {0}'.format(name_LegToDel))
+        legum_to_delete = Legume.objects.filter(nom=name_LegToDel)
+        legum_to_delete.delete()
+    return culture(request)

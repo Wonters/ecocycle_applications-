@@ -7,23 +7,34 @@
     <a href="/maraichage/add">
         <button class="btn btn-success"> ajouter une espèce</button>
     </a>
-    {% for legum in listLegum %}
-    <div id="{{legum.nom}}" style="margin: 20px;">
-        <h1> {{legum.nom}} </h1>
+    {% for key, value in Legums.items %}
+    <div class="legum" id="{{key}}" style="margin: 20px;">
+        <h1 class="nomLegume"> {{key}} </h1>
         <div class="row data">
             <div class="col plantation">
                 <p>Plantation</p>
+                {% for legum in value%}
                 <p>{{legum.date_plantation}}</p>
                 <p> nombre de plants : {{legum.nbr_plant}}</p>
+                {% endfor %}
             </div>
             <div class="col recolte">
                 <p>Recolte</p>
+                {% for legum in value%}
                 <p>{{legum.date_recolte}}</p>
                 <p> Poids (kg) : {{legum.poid_recolte}}</p>
+                {% endfor %}
+            </div>
+            <div class="col">
+                <a href="/maraichage/delete">
+                    <button class="btn btn-success" onclick="deleteLegume()">Delete</button>
+                </a>
             </div>
         </div>
     </div>
     {% endfor %}
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/static/js/culture.js"></script>
 
 {% endblock %}

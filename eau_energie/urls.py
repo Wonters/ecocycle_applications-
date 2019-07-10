@@ -10,10 +10,4 @@ from .views import *
 
 urlpatterns = [
     path('', home),
-    path('culture', culture),
-    path('add', addLegum),
-    path('save', saveLegum),
-    path('delete', deleteLegum)
-    #path('', include(router.urls)),
-    #path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
