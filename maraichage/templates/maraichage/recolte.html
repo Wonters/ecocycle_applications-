@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<select>
+    <option> total </option>
+    {% for legume in list %}
+    <option></option>
+    {% endfor %}
+</select>
+<div id="graph"></div>
+<script src="https://cnd.plot.ly/plotly-lastest.min.js"></script>
+<script src="/static/js/recolte.js"></script>
+{% endblock %}
+

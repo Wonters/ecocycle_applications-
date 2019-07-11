@@ -41,6 +41,10 @@ def culture(request):
     print(dictLegum)
     return render(request, 'maraichage/culture.html', {'Legums': dictLegum})
 
+def recolte(request):
+
+    return render(request, 'maraichage/recolte.html', {'listrecolte'})
+
 
 def addLegum(request):
     form = LegumeForm
