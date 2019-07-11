@@ -1,9 +1,30 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block body %}
-<form action="/maraichage/save" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h3 class="h3 text-center"> Ajouter une espèce sur le maraîchage </h3>
+            <form class="text-center" action="/maraichage/save" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4">{{form.nom|as_crispy_field}}</div>
+                    <div class="col-md-4">{{form.type|as_crispy_field}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">{{form.date_plantation|as_crispy_field}}</div>
+                    <div class="col-md-4">{{form.nbr_plant|as_crispy_field}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">{{form.date_recolte|as_crispy_field}}</div>
+                    <div class="col-md-4">{{form.poid_recolte|as_crispy_field}}</div>
+                </div>
+                <input type="submit" class="btn btn-success" value="SAVE">
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

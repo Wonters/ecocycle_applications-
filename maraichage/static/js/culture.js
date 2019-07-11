@@ -21,10 +21,6 @@ function deleteLegume() {
 
 }
 
-function showDataLegum() {
-    $('.plantation').style.visibility = "visible" ;
 
-
-}
 
 

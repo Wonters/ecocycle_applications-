@@ -22,13 +22,14 @@ from .models import Legume
 #     serializer_class = GroupSerializer
 
 def home(request):
-    return render(request, 'maraichage/home.html')
+    dictLegum = getDb()
+    return render(request, 'maraichage/home.html', {'list': dictLegum})
 
 
-def culture(request):
-    db = Legume.objects.all()
+def getDb():
     listL = []
     dictLegum = {}
+    db = Legume.objects.all()
     for legum in db:
         listL.append(legum.nom)
     listL = list(set(listL))
@@ -38,7 +39,10 @@ def culture(request):
             if legum.nom == nom:
                 ltanpon.append(legum)
         dictLegum[nom] = ltanpon
-    print(dictLegum)
+    return dictLegum
+
+def culture(request):
+    dictLegum = getDb()
     return render(request, 'maraichage/culture.html', {'Legums': dictLegum})
 
 
