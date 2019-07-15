@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
+import json
 from .forms import LegumeForm
 from .models import Legume
 
@@ -22,8 +23,7 @@ from .models import Legume
 #     serializer_class = GroupSerializer
 
 def home(request):
-    dictLegum = getDb()
-    return render(request, 'maraichage/home.html', {'list': dictLegum})
+    return render(request, 'maraichage/home.html', {'list': getDb(), 'plantation': json.dumps(getPlantation())})
 
 
 def getDb():
@@ -41,13 +41,39 @@ def getDb():
         dictLegum[nom] = ltanpon
     return dictLegum
 
+def getPlantation():
+    listPlantation = getDb()
+    plantation = {}
+    for key, value in listPlantation.items():
+        plantation[key]=0
+        for legum in value:
+            plantation[key] += legum.nbr_plant
+    return plantation
+
+def getRecolte():
+    listrecolte = getDb()
+    recolte = {}
+    recolte_month = {}
+    for key, value in listrecolte.items():
+        recolte[key] = {}
+        recolte_month[key] = {}
+        for legum in value:
+            recolte[key][str(legum.date_recolte.year) + '-' + str(legum.date_recolte.month) + '-' + str(
+                legum.date_recolte.day) + '-' + str(legum.date_recolte.hour)] = legum.poid_recolte
+            recolte_month[key][str(legum.date_recolte.month)] = 0
+    for key, value in listrecolte.items():
+        for legum in value:
+            recolte_month[key][str(legum.date_recolte.month)] += legum.poid_recolte
+    print(recolte_month, recolte)
+    return recolte
+
+
 def culture(request):
-    dictLegum = getDb()
-    return render(request, 'maraichage/culture.html', {'Legums': dictLegum})
+    return render(request, 'maraichage/culture.html', {'Legums': getDb()})
+
 
 def recolte(request):
-
-    return render(request, 'maraichage/recolte.html', {'listrecolte'})
+    return render(request, 'maraichage/recolte.html', {'listLegum': getDb(), 'recolte': json.dumps(getRecolte())})
 
 
 def addLegum(request):
@@ -58,8 +84,7 @@ def addLegum(request):
 def saveLegum(request):
     form = LegumeForm(request.POST)
     form.save()
-    listLegum = Legume.objects.all()
-    return render(request, 'maraichage/home.html', {'listLegum': listLegum})
+    return home(request)
 
 
 @csrf_exempt

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'maraichage',
     'home',
     'crispy_forms',
+    'eau_energie',
 ]
 
 MIDDLEWARE = [
@@ -140,5 +141,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     os.path.join(BASE_DIR, "maraichage/static"),
     os.path.join(BASE_DIR, "home/static"),
+    os.path.join(BASE_DIR, "eau_energie/static"),
 
 ]

@@ -2,14 +2,24 @@
 
 
 {% block body %}
-<select>
-    <option> total </option>
-    {% for legume in list %}
-    <option></option>
-    {% endfor %}
-</select>
+<input hidden id="inputrecolte" value="{{recolte}}">
+<div class="row">
+    <div class="col text-center">
+        <h3 class="h3"> Sélectionner une recolte </h3>
+        <select class="form-control" onchange = "getRecolte(value)">
+            <option id="total" value="total"> total</option>
+            {% for legum, data in listLegum.items %}
+            <option id="{{legum}}" value="{{legum}}" >{{legum}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col">
+    </div>
+
+</div>
+
 <div id="graph"></div>
-<script src="https://cnd.plot.ly/plotly-lastest.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="/static/js/recolte.js"></script>
 {% endblock %}
 

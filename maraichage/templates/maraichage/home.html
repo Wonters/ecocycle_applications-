@@ -3,25 +3,33 @@
 
 {% block body %}
 
-
+<input id="plantation" hidden value="{{plantation}}">
 <div style="margin: 20px;">
-    <a href="/maraichage/culture"><button class="btn btn-success"> Cultures</button></a>
-    <a href="/maraichage/recolte"><button class="btn btn-success"> Recoltes </button></a>
-    <button class="btn btn-success"> Propagateurs </button>
+    <a href="/maraichage/culture">
+        <button class="btn btn-success"> Cultures</button>
+    </a>
+    <a href="/maraichage/recolte">
+        <button class="btn btn-success"> Recoltes</button>
+    </a>
+    <button class="btn btn-success"> Propagateurs</button>
 </div>
 
 <div class="row">
     <div class="col">
         <h3> Repartition des cultures (par nombre de plants) </h3>
-        <canvas height="300" width="300" id="canvas"></div>
+        <div id="pie"></div>
+    </div>
     <div class="col">
-        <h3>Recolte Prévisionnelles</h3>
-        <div class="graph"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div id="maps"></div>
     </div>
 </div>
 
-</canvas>
-
-<script src="/static/js/home.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/static/js/home_maraichage.js"></script>
 
 {% endblock %}

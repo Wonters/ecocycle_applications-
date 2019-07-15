@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('maraichage/', include('maraichage.urls')),
     path('', include('home.urls')),
-    path('eau&energie/', include('eau_energie.urls')),
+    path('eau_energie/', include('eau_energie.urls')),
 ]
