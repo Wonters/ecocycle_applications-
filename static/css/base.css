@@ -1,15 +1,15 @@
 .navbar {
-  background-color: #fcd212;
+  background-color: #000000;
 }
 .navbar .navbar-brand {
-  color: #000000;
+  color: #ffffff;
 }
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
   color: #00ab94;
 }
 .navbar .navbar-text {
-  color: #000000;
+  color: #ffffff;
 }
 .navbar .navbar-text a {
   color: #00ab94;
@@ -19,7 +19,7 @@
   color: #00ab94;
 }
 .navbar .navbar-nav .nav-link {
-  color: #000000;
+  color: #ffffff;
   border-radius: .25rem;
   margin: 0 0.25em;
 }

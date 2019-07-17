@@ -65,7 +65,7 @@ def getRecolte():
         for legum in value:
             recolte_month[key][str(legum.date_recolte.month)] += legum.poid_recolte
     print(recolte_month, recolte)
-    return recolte
+    return recolte, recolte_month
 
 
 def culture(request):
@@ -73,7 +73,7 @@ def culture(request):
 
 
 def recolte(request):
-    return render(request, 'maraichage/recolte.html', {'listLegum': getDb(), 'recolte': json.dumps(getRecolte())})
+    return render(request, 'maraichage/recolte.html', {'listLegum': getDb(), 'recolte': json.dumps(getRecolte()[0])})
 
 
 def addLegum(request):

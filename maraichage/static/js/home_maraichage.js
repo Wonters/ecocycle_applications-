@@ -24,50 +24,16 @@ function plotPlantation() {
     }
     plotlyPie(datalist, lengendlist);
 }
-
-function map() {
-    let data = [{
-        type: 'scattermapbox',
-        lat: ['45.1272761'],
-        lon: ['1.0938997'],
-        mode: 'markers',
-        marker: {
-            size: 14
-        },
-        text: ['Etang']
-    },
-    {
-        type: 'scattermapbox',
-        lat: ['45.1278192'],
-        lon: ['1.099584'],
-        mode: 'markers',
-        marker: {
-            size: 14
-        },
-        text: ['AcTI']
-    }];
-
-    let layout = {
-        autosize: true,
-        hovermode: 'closest',
-        mapbox: {
-            bearing: 0,
-            center: {
-                lat: 45.1274258,
-                lon: 1.0992233,
-            },
-            pitch: 0,
-            zoom: 15,
-            style:'satellite',
-        },
-    };
-
-    Plotly.setPlotConfig({
-        mapboxAccessToken: 'pk.eyJ1IjoiZXRwaW5hcmQiLCJhIjoiY2luMHIzdHE0MGFxNXVubTRxczZ2YmUxaCJ9.hwWZful0U2CQxit4ItNsiQ'
-    });
-
-    Plotly.plot('maps', data, layout, {showSendToCloud: true});
+function plotRecolte(){
+    let inputRecolte = $('#recolte')[0];
+    let recolte = JSON.parse(inputRecolte.value);
+    let datalist = new Array();
+    let legendList = new Array();
+    for (let val in recolte){
+        datalist.push(recolte[val]);
+        legendList.push(val);
+    }
 }
 
+
 plotPlantation();
-map();

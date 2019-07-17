@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'home',
     'crispy_forms',
     'eau_energie',
+    'tierlieu',
+    'gites'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join('templates'), os.path.join('maraichage/templates'), os.path.join('home/templates'),
-                 os.path.join('eau_energie/templates')],
+                 os.path.join('eau_energie/templates'),os.path.join('gites/templates'), os.path.join('tierlieu/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -142,5 +144,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "maraichage/static"),
     os.path.join(BASE_DIR, "home/static"),
     os.path.join(BASE_DIR, "eau_energie/static"),
+    os.path.join(BASE_DIR, "tierlieu/static"),
+    os.path.join(BASE_DIR, "gites/static"),
+
+
 
 ]

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{%block static %}
+<link rel="stylesheet" href="/static/css/gite_home.css">
+{% endblock %}
+
+
+{% block body %}
+<div id="depart">
+    <h5> Liste des départs </h5>
+    <!-- afficher la liste des départ avec le mot des locataire, la chambre utilisé et l'heure de départ -->
+    <!-- situation : déjà réglé ou non -->
+</div>
+
+<div id="arrive">
+<h5> liste des arrivées </h5>
+</div>
+
+<div id="chambre_hote" class="row">
+
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col">
+                <div> chambre 1</div> <!-- booleen d'information, prete à loyer ou non -->
+                <!-- bouton on/off à l'entrée de la chambre -->
+            </div>
+            <div class="col">
+                <div class="dot"></div>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col">
+                <div> chambre 2</div> <!-- booleen d'information, prete à loyer ou non -->
+                <!-- bouton on/off à l'entrée de la chambre -->
+            </div>
+            <div class="col">
+                <div class="dot"></div>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col">
+                <div> chambre 3</div> <!-- booleen d'information, prete à loyer ou non -->
+                <!-- bouton on/off à l'entrée de la chambre -->
+            </div>
+            <div class="col">
+                <div class="dot"></div>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col">
+                <div> chambre 4</div> <!-- booleen d'information, prete à loyer ou non -->
+                <!-- bouton on/off à l'entrée de la chambre -->
+            </div>
+            <div class="col">
+                <div class="dot"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div id="gites" class="row">
+    <div class="col">
+        <div class="col">
+            <p>gite 1</p>  <!-- nombre de chambre à louée et de salles ???? -->
+        </div>
+        <div class="col">
+            <p> gite 2</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
