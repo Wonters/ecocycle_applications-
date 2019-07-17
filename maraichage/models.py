@@ -18,3 +18,6 @@ class Legume(models.Model):
 
     def get_recolte(self):
         return {'date': self.date_recolte, 'poids': self.poid_recolte}
+
+    def __str__(self):
+        return self.nom

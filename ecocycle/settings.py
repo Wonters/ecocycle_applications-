@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'crispy_forms',
     'maraichage',
     'home',
-    'crispy_forms',
     'eau_energie',
     'tierlieu',
-    'gites'
+    'gites',
 ]
 
 MIDDLEWARE = [

@@ -21,5 +21,6 @@ urlpatterns = [
     path('maraichage/', include('maraichage.urls')),
     path('', include('home.urls')),
     path('eau_energie/', include('eau_energie.urls')),
-    path('gites/', include('gites.urls'))
+    path('gites/', include('gites.urls')),
+    path('tierlieu/', include('tierlieu.urls'))
 ]
