@@ -1,10 +1,42 @@
 {% extends 'base.html' %}
 
 
-
-
 {% block body %}
 
-<a href="/tierlieu/adherents"> <button class="btn-success"> adherents </button></a>
+<div class="row">
+    <div class="col text-center">
+        <a href="/tierlieu/adherents">
+            <button class="btn-success"> Adherents </button>
+        </a>
+    </div>
+    <div class="col text-center">
+        <a href="/tierlieu/adherents">
+            <button class="btn-success"> Evènements </button>
+        </a>
+    </div>
+    <div class="col text-center">
+        <a href="/tierlieu/adherents">
+            <button class="btn-success"> Trésorerie </button>
+        </a>
+    </div>
+</div>
+
+<h3 class="text-center text-capitalize">Café&coworking</h3>
+<div class="row">
+    <div class="col text-center">
+        <h3> Evenements à venir </h3>
+    </div>
+    <div class="col text-center">
+        <h3> Salles disponibles </h3>
+    </div>
+</div>
+
+<h3 class="text-center text-capitalize"> Fablab </h3>
+<div class="row">
+    <div class="col text-center">
+        machines disponibles
+    </div>
+</div>
+
 
 {% endblock body%}

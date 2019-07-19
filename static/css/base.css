@@ -124,3 +124,9 @@
   color: #00ab94;
   background-color: #dbcecc;
 }
+
+
+.img{
+  border-radius: 50%;
+  box-shadow: rgba(252, 252, 252, 0.69) 0px 0px 50px 30px;
+}

@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class TypeAdhesion(models.Model):
-    type = models.CharField(max_length=20)
+    type = models.CharField(max_length=50)
     prix = models.IntegerField(default=0, null=True)
 
     def __str__(self):
@@ -30,7 +30,7 @@ class User(models.Model):
     firstname = models.CharField(max_length=20)
     lastname = models.CharField(max_length=200)
     mail = models.EmailField()
-    adhesionuser = models.ForeignKey(Adhesion, on_delete=models.CASCADE)
+    adhesion = models.ForeignKey(Adhesion, on_delete=models.CASCADE)
     status = models.ForeignKey(Statu, on_delete=models.CASCADE)
 
     def __str__(self):

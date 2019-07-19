@@ -1,52 +1,55 @@
 {% extends 'base.html' %}
 
 
-
-
 {% block body %}
 
-<h3> Liste des adérents à l'association </h3>
+<h3 class="text-center"> Liste des adérents à l'association </h3>
 
-<div class="row">
+<div class="row text-center">
     <div class="col">
-        <p class="lead">Prénom</p>
-    </div>
-        <div class="col">
-        <p class="lead">Nom </p>
-    </div>
-        <div class="col">
-        <p class="lead">Abonnement </p>
+        <p class="lead font-weight-bold">Prénom</p>
     </div>
     <div class="col">
-        <p class="lead">Début</p>
+        <p class="lead font-weight-bold">Nom </p>
     </div>
     <div class="col">
-        <p class="lead">Fin </p>
+        <p class="lead font-weight-bold">Abonnement </p>
+    </div>
+    <div class="col">
+        <p class="lead font-weight-bold">Payement </p>
+    </div>
+    <div class="col">
+        <p class="lead font-weight-bold">Début</p>
+    </div>
+    <div class="col">
+        <p class="lead font-weight-bold">Fin </p>
     </div>
 
 </div>
 {% for user in users %}
-<div class="row">
+<div class="row text-center">
     <div class="col">
-        <p class="lead">{{user.firstname}} </p>
-    </div>
-        <div class="col">
-        <p class="lead">{{user.lastname}} </p>
-    </div>
-        <div class="col">
-        <p class="lead">{{user.adhesionuser.adhesion}} </p>
+        <label class="lead">{{user.firstname}} </label>
     </div>
     <div class="col">
-        <p class="lead">{{user.adhesionuser.datesouscription}} </p>
+        <label class="lead">{{user.lastname}} </label>
+    </div>
+    <div class="col">
+        <label class="lead">{{user.adhesion.adhesion.type}} </label>
+    </div>
+    <div class="col">
+        <label class="lead">{{user.adhesion.adhesion.prix}}€</label>
+    </div>
+    <div class="col">
+        <label class="lead">{{user.adhesion.datesouscription}} </label>
 
     </div>
     <div class="col">
-        <p class="lead">{{user.adhesionuser.dateexpiration}} </p>
-</div>
-
-
+        <label class="lead">{{user.adhesion.dateexpiration}} </label>
+    </div>
 </div>
 {% endfor %}
 
+<script src="/static/js/adherents.js"></script>
 
 {% endblock body%}

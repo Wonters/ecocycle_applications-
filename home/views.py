@@ -15,15 +15,15 @@ from .models import *
 
 ## travailler sur la connexion des utilisateurs
 def home(request):
-    session_key = request.session.session_key
-    print(request.session)
-    print(session_key)
-    print(Session.objects.all())
-    session = Session.objects.get(session_key=session_key)
-    session_data = session.get_decoded()
-    print(session_data)
-    uid = session_data.get('_auth_user_id')
-    user = User.objects.get(id=uid)
-    print(user)
+    # session_key = request.session.session_key
+    # print(request.session)
+    # print(session_key)
+    # print(Session.objects.all())
+    # session = Session.objects.get(session_key=session_key)
+    # session_data = session.get_decoded()
+    # print(session_data)
+    # uid = session_data.get('_auth_user_id')
+    # user = User.objects.get(id=uid)
+    # print(user)
     return render(request, 'home/home.html')
 
