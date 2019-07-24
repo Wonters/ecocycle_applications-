@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+import datetime, time
 
 class TypeAdhesion(models.Model):
     type = models.CharField(max_length=50)
@@ -56,6 +57,10 @@ class Event(models.Model):
 
     def __str__(self):
         return self.nom
+
+    def geteventsToCome(self):
+        today_date = time.strftime("%Y-%m-%d %H:%M:%S")
+        print(today_date)
 
 
 class Maintenance(models.Model):

@@ -14,10 +14,11 @@ class TypeAdhesionAdmin(admin.ModelAdmin):
 
 @admin.register(Statu)
 class StatuAdmin(admin.ModelAdmin):
-    list_display =  ('status','comp')
+    list_display = ('status', 'comp')
 
-
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('nom', 'date', 'prix', 'abonnement')
 
 admin.site.register(Adhesion)
-admin.site.register(Event)
 admin.site.register(Machineoutil)

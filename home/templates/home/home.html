@@ -1,21 +1,55 @@
 {% extends "base.html" %}
 
-{%block static %}
-    <link rel="stylesheet" href="/static/css/calendar.css">
+{% block title%}
 
+{% endblock title %}
+
+{%block static %}
+<link rel="stylesheet" href="/static/css/calendar.css">
+<link rel="import" href="/static/fullcalendar-calendar/fullcalendar-theme.html">
+<link rel="import" href="/static/fullcalendar-calendar/behaviors/full-calendar-behavior.html">
+<link rel="import" href="/static/fullcalendar-calendar/fullcalendar-calendar.html">
+<link rel="import" href="/static/polymer/polymer.html">
 {% endblock %}
 
 {% block body %}
-<h3 class="h3"> Plan du site </h3>
+<h3 class="h3 text-center text-capitalize"> Plan du site </h3>
 <div class="row">
-    <div class="col">
+    <div class="col" style="height: 500px">
         <div id="maps"></div>
     </div>
 </div>
+<div class=row"">
+    <div class="col h3 text-center">Evenement à venir</div>
+</div>
+<template is="dom-bind" id="app">
+    <div class="actions">
+        <div>[[title]]</div>
+        <div class="text-center">
+            <button class="btn btn-info" view="month" on-tap="changeView">Month</button>
+            <button class="btn btn-info" view="basicWeek" on-tap="changeView">Basic week</button>
+            <button class="btn btn-info" view="basicDay" on-tap="changeView">Basic day</button>
+            <button class="btn btn-info" view="agendaWeek" on-tap="changeView">Agenda week</button>
+            <button class="btn btn-info" view="agendaDay" on-tap="changeView">Agenda day</button>
+            <button class="btn btn-info" id="previous" icon="chevron-left" on-tap="previous">Previous</button>
+            <button class="btn btn-info" id="next" icon="chevron-right" on-tap="next">Next</button>
+        </div>
+    </div>
+</template>
+<fullcalendar-calendar
+        id="calendar"
+        options="[[options]]"
+        view="{{view}}"
+        on-view-render="setTitle"
+        on-day-click="notifyDayClick"
+></fullcalendar-calendar>
 
 
+
+<script src="/static/webcomponentsjs/webcomponents-lite.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/static/js/home_home.js"></script>
+
 
 {% endblock %}

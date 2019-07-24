@@ -13,8 +13,8 @@ urlpatterns = [
     path('culture', culture),
     path('add', addLegum),
     path('save', saveLegum),
-    path('delete', deleteLegum),
-    path('recolte', recolte)
+    #path('delete', deleteLegum),
+    path('recolte', recolte),
     #path('', include(router.urls)),
     #path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

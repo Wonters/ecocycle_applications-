@@ -5,6 +5,8 @@
 
 <input id="plantation" hidden value="{{plantation}}">
 <input id="recolte" hidden value="{{recolte}}">
+<input id="calendardata" hidden value="{{calendar}}">
+
 
 <div style="margin: 20px;" class="text-center">
     <a href="/maraichage/culture">
@@ -17,17 +19,20 @@
 
 <div class="row">
     <div class="col">
-        <h3> Repartition des cultures (par nombre de plants) </h3>
+        <h3> Repartition des cultures (par nombres de plants) </h3>
         <div id="pie"></div>
     </div>
-    <div class="col">
-        <h3> Repartition des récoltes </h3>
-        <div id="pie_recolte"></div>
+</div>
+<div class="row">
+        <div class="col">
+        <h3> Calendrier des recoltes </h3>
+        <div id="calendar"></div>
     </div>
 </div>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/static/js/home_maraichage.js"></script>
+<script src="/static/js/home_maraichage.js">
+</script>
 
 {% endblock %}

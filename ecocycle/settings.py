@@ -138,6 +138,7 @@ REST_FRAMEWORK = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
@@ -146,7 +147,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "eau_energie/static"),
     os.path.join(BASE_DIR, "tierlieu/static"),
     os.path.join(BASE_DIR, "gites/static"),
-
-
-
+    os.path.join(BASE_DIR, 'bower_components'),
 ]
