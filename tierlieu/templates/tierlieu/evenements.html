@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<h3 class="text-center"> Liste des évènements de l'association </h3>
+
+{% for event in events %}
+<div class="row text-center">
+    <div class="col">
+        <label class="lead">{{event.nom}} </label>
+    </div>
+    <div class="col">
+        <label class="lead">{{event.date}} </label>
+    </div>
+    <div class="col">
+        <label class="lead">{{event.prix}}€ </label>
+    </div>
+    <div class="col">
+        <label class="lead">{{event.abonnement}}</label>
+    </div>
+</div>
+{% endfor %}
+
+<script src="/static/js/evenements.js"></script>
+
+{% endblock body%}

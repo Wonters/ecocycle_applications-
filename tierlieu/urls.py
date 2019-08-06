@@ -11,4 +11,5 @@ from .views import *
 urlpatterns = [
     path('', home),
     path('adherents', adherents),
+    path('events', events ),
 ]

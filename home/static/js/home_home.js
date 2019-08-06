@@ -134,7 +134,7 @@ function calendar() {
         header: false,
         events: event(),
     };
-
+    
     app.addEventListener('dom-change', function () {
         var calendar = Polymer.dom(document).querySelector('fullcalendar-calendar');
         var notification = Polymer.dom(document).querySelector('paper-toast');
@@ -159,6 +159,12 @@ function calendar() {
         app.setTitle = function (event) {
             this.title = event.detail.view.title;
         };
+    
+        calendar.addEvent({
+                       title: 'dynamic event',
+                       start: new Date(dateStr + 'T00:00:00'),
+                       allDay: true
+                       });
     });
 
 }

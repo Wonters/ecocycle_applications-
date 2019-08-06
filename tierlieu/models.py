@@ -62,6 +62,10 @@ class Event(models.Model):
         today_date = time.strftime("%Y-%m-%d %H:%M:%S")
         print(today_date)
 
+    def _getlistEvents(self):
+        db = Event.objects.all()
+        return db
+
 
 class Maintenance(models.Model):
     dateachat = models.DateField()
